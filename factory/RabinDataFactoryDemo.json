@@ -1,0 +1,9 @@
+{
+	"name": "RabinDataFactoryDemo",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "eb3dd429-3387-4d69-b7d7-c39d6dc30b16",
+		"tenantId": "944b10e4-832d-45e9-9add-0bdf0c2be426"
+	}
+}
