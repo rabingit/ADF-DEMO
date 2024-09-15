@@ -13,7 +13,14 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "filter1"
+				},
+				{
+					"name": "aggregate1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          ORDERNUMBER as short,",
@@ -29,7 +36,11 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> sourceSales"
+				"     ignoreNoFilesFound: false) ~> sourceSales",
+				"sourceSales filter(SALES>=2000) ~> filter1",
+				"filter1 aggregate(groupBy(YEAR_ID,",
+				"          MONTH_ID),",
+				"     TOTALSALES = sum(SALES)) ~> aggregate1"
 			]
 		}
 	}
